@@ -1,0 +1,355 @@
+version: 1
+definitions:
+  - type: Pressure
+    baseUnit: Pascals
+    matches:
+      - pressure
+    units:
+      - name: Pascals
+        symbol: Pa
+        fromBase: Pa => Pa
+        toBase: Pa => Pa
+        matches:
+          - pa
+          - pascal
+          - pascals
+      - name: Kilopascals
+        symbol: kPa
+        fromBase: Pa => Pa * 0.001
+        toBase: kPa => kPa * 1,000
+        matches:
+          - kpa
+          - kilopascal
+          - kilopascals
+      - name: Megapascals
+        symbol: MPa
+        fromBase: Pa => Pa * 0.000,001
+        toBase: MPa => MPa * 1,000,000
+        matches:
+          - mpa
+          - megapascal
+          - megapascals
+      - name: Pounds per Square Inch
+        symbol: psi
+        fromBase: Pa => Pa * 0.000,145,038
+        toBase: psi => psi * 6,894.76
+        matches:
+          - psi
+          - poundspersquareinch
+          - poundpersquareinch
+      - name: Inches of Water
+        symbol: inH₂O
+        fromBase: Pa => Pa * 0.004,014,74
+        toBase: inH2O => inH2O * 249.082
+        matches:
+          - inh₂o
+          - inh₂0
+          - inh2o
+          - inh20
+          - incheswater
+          - inchesofwater
+          - inchwater
+          - inchofwater
+  - type: Temperature
+    baseUnit: Degrees Celsius
+    matches:
+      temperature
+      temp
+    units:
+      - name: Degrees Celsius
+        symbol: °C
+        fromBase: C => C
+        toBase: C => C
+        matches:
+          - c
+          - °c
+          - celsius
+          - degreesc
+          - degreec
+          - degreescelsius
+          - degreecelsius
+      - name: Degrees Fahrenheit
+        symbol: °F
+        fromBase: C => (C * (9 / 5)) + 32
+        toBase: F => (F - 32) * (5 / 9)
+        matches:
+          - f
+          - °f
+          - fahrenheit
+          - degreesf
+          - degreef
+          - degreesfahrenheit
+          - degreefahrenheit
+      - name: Kelvins
+        symbol: K
+        fromBase: C => C + 273.15
+        toBase: K => K - 273.15
+        # it's improper form to say "degrees kelvin" but we'll match it anyway
+        matches:
+          - k
+          - °k
+          - kelvin
+          - kelvins
+          - degreesk
+          - degreek
+          - degreeskelvin
+          - degreekelvin
+  - type: Flow
+    baseUnit: Cubic Meters per Second
+    matches:
+      - flow
+      - flowrate
+      - flow_rate
+      - gasflow
+      - gasflowrate
+      - gas_flow
+      - gas_flow_rate
+    units:
+      - name: Cubic Meters per Second
+        symbol: m³/s
+        fromBase: m3s => m3s
+        toBase: m3s => m3s
+        matches:
+          - m³/s
+          - m³s
+          - m3/s
+          - m3s
+          - m^3/s
+          - m^3s
+          - cubicmeterspersecond
+          - cubicmeterpersecond
+          - cubicmeters/second
+          - cubicmeter/second
+      - name: CubicFeetPerSecond
+        symbol: ft³/s
+        fromBase: m3s => m3s * 35.314,7
+        toBase: ft3s => ft3s * 0.028,316,8
+        matches:
+          - ft³/s
+          - ft³s
+          - ft3/s
+          - ft3s
+          - ft^3/s
+          - ft^3s
+          - f³/s
+          - f³s
+          - f3/s
+          - f3s
+          - f^3/s
+          - f^3s
+          - cubicfeetpersecond
+          - cubicfootpersecond
+          - cubicfeet/second
+          - cubicfoot/second
+      - name: Thousand Cubic Feet per Day
+        symbol: MCFD
+        fromBase: m3s => m3s * 3,051.19
+        toBase: MCFD => MCFD * 0.000,327,741
+        matches:
+          - mcfd
+          - mcf/d
+          - mcftd
+          - mcft/d
+          - mft³/d
+          - mft³d
+          - mft3/d
+          - mft3d
+          - mft^3/d
+          - mft^3d
+          - mf³/d
+          - mf³d
+          - mf3/d
+          - mf3d
+          - mf^3/d
+          - mf^3d
+          - thousandcubicfeetperday
+          - thousandcubicfeet/day
+  - type: Volume
+    baseUnit: Cubic Meters
+    matches:
+      - volume
+    units:
+      - name: Cubic Meters
+        symbol: m³
+        fromBase: m3 => m3
+        toBase: m3 => m3
+        matches:
+          - m³
+          - m3
+          - cubicmeter
+          - cubicmeters
+      - name: Cubic Feet
+        # symbol here isn't quite what you'd expect!
+        symbol: cu ft
+        fromBase: m3 => m3 * 35.314,7
+        toBase: cuft => cuft * 0.028,316,8
+        matches:
+          - cuft
+          - ft³
+          - f³
+          - cubicfoot
+          - cubicfeet
+      - name: Thousands of Cubic Feet
+        symbol: MCF
+        fromBase: m3 => m3 * 0.035,314,7
+        toBase: MCF => MCF * 28.316,8
+        matches:
+          - mcf
+          - mft³
+          - mf³
+          - thousandcubicfeet
+          - thousandsofcubicfeet
+          - thousandscubicfeet
+  - type: Electric Potential
+    baseUnit: Volts
+    matches:
+      - electricpotential
+      - voltage
+    units:
+      - name: Volts
+        symbol: V
+        fromBase: V => V
+        toBase: V => V
+        matches:
+          - volt
+          - volts
+          - v
+# We measure humidity, percentage, and alarms in the same unit, percent
+  - type: Humidity
+    baseUnit: Percent
+    matches:
+      - humidity
+    units:
+      - name: Percent
+        symbol: %
+        fromBase: p => p
+        toBase: p => p
+        matches:
+          - %
+          - percent
+          - percentage
+  - type: Percentage
+    baseUnit: Percent
+    matches:
+      - percentage
+    units:
+      - name: Percent
+        symbol: %
+        fromBase: p => p
+        toBase: p => p
+        matches:
+          - %
+          - percent
+          - percentage
+  - type: Alarm
+    baseUnit: Percent
+    matches:
+      - alarm
+    units:
+      - name: Percent
+        symbol: %
+        fromBase: p => p
+        toBase: p => p
+        matches:
+          - %
+          - percent
+          - percentage
+  - type: Work
+    baseUnit: Joules
+    matches:
+      - work
+    units:
+      - name: Joules
+        symbol: J
+        fromBase: J => J
+        toBase: J => J
+        matches:
+          - j
+          - joule
+          - joules
+      - name: Inch-pounds Force
+        symbol: in lbf
+        fromBase: J => J * 8.850,74
+        toBase: inlbf => inlbf * 0.112,985
+        matches:
+          - inlbf
+          - inch-poundsforce
+          - inch-poundforce
+          - in-lbf
+      - name: Cubic Feet of Natural Gas
+        symbol: BTUᵢₜ
+        fromBase: J => J * 0.000,000,947,817
+        toBase: btu => btu * 1,055,060
+        matches:
+          - btuᵢₜ
+          - btuit
+          - btu
+          - cubicfeetofnaturalgas
+      - name: Barrels of Oil Equivalent
+        symbol: bboe
+        fromBase: J => J * 0.000,000,000,163,399
+        toBase: bboe => bboe * 6,120,000,000
+        matches:
+          - bboe
+          - barrelsofoilequivalent
+  - type: Force
+    baseUnit: Newtons
+    matches:
+      - force
+    units:
+      - name: Newtons
+        symbol: N
+        fromBase: N => N
+        toBase: N => N
+        matches:
+          - n
+          - newton
+          - newtons
+      - name: Pounds-force
+        symbol: lbf
+        fromBase: N => N * 0.224,809
+        toBase: lbf => lbf * 4.448,22
+        matches:
+          - lbf
+          - pounds-force
+          - poundsforce
+          - pound-force
+          - poundforce
+      - name: Kilograms-force
+        symbol: kgf
+        fromBase: N => N * 0.101,972
+        toBase: kgf => kgf * 9.806,65
+        matches:
+          - kgf
+          - kilograms-force
+          - kilogram-force
+  - type: Length
+    baseUnit: Meters
+    matches:
+      - l
+      - length
+    units:
+      - name: Meters
+        symbol: m
+        fromBase: m => m
+        toBase: m => m
+        matches:
+          - m
+          - meter
+          - meters
+      - name: Feet
+        symbol: ft
+        fromBase: m => m * 3.280,84
+        toBase: ft => ft * 0.304,800
+        matches:
+          - ft
+          - foot
+          - feet
+      - name: Inches
+        symbol: in
+        fromBase: m => m * 39.370,1
+        toBase: in => in * 0.0254,000
+        matches:
+          - in
+          - inch
+          - inches
