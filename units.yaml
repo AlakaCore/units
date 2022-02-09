@@ -1,4 +1,4 @@
-version: 1
+version: v1
 definitions:
   - type: Pressure
     baseUnit: Pascals
@@ -53,8 +53,8 @@ definitions:
   - type: Temperature
     baseUnit: Degrees Celsius
     matches:
-      temperature
-      temp
+      - temperature
+      - temp
     units:
       - name: Degrees Celsius
         symbol: °C
@@ -221,11 +221,11 @@ definitions:
       - humidity
     units:
       - name: Percent
-        symbol: %
+        symbol: '%'
         fromBase: p => p
         toBase: p => p
         matches:
-          - %
+          - '%'
           - percent
           - percentage
   - type: Percentage
@@ -234,11 +234,11 @@ definitions:
       - percentage
     units:
       - name: Percent
-        symbol: %
+        symbol: '%'
         fromBase: p => p
         toBase: p => p
         matches:
-          - %
+          - '%'
           - percent
           - percentage
   - type: Alarm
@@ -247,11 +247,11 @@ definitions:
       - alarm
     units:
       - name: Percent
-        symbol: %
+        symbol: '%'
         fromBase: p => p
         toBase: p => p
         matches:
-          - %
+          - '%'
           - percent
           - percentage
   - type: Work
@@ -353,3 +353,30 @@ definitions:
           - in
           - inch
           - inches
+  - type: StrokeRate
+    baseUnit: Strokes per Second
+    matches:
+      - strokerate
+      - stroke-rate
+    units:
+      - name: Strokes per Second
+        symbol: strokes/s
+        fromBase: ss => ss
+        toBase: ss => ss
+        matches:
+          - strokes/s
+          - strokespersecond
+          - s/s
+# Number is provided as a catch all
+  - type: Number
+    baseUnit: Number
+    matches:
+      - '*'
+    units:
+      - name: Number
+        symbol: ''
+        fromBase: n => n
+        toBase: n => n
+        matches:
+          - number
+          - ''
