@@ -123,12 +123,7 @@ func (u *Unit) Title() string {
 }
 
 func (u *Unit) StructName(defName string) string {
-	uname := u.Title()
-	if uname == defName {
-		uname = "_" + uname
-	}
-	uname += defName
-	return uname
+	return u.Title() + defName
 }
 
 func (u *Unit) VarName(defName string) string {
