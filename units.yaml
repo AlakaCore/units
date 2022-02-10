@@ -215,17 +215,19 @@ definitions:
           - volts
           - v
 # We measure humidity, percentage, and alarms in the same unit, percent
+# The % symbol is a special character in go AND in yaml so we provide it
+# as '%%'. The quotes are for yaml, the double % is for go.
   - type: Humidity
     baseUnit: Percent
     matches:
       - humidity
     units:
       - name: Percent
-        symbol: '%'
+        symbol: '%%'
         fromBase: p => p
         toBase: p => p
         matches:
-          - '%'
+          - '%%'
           - percent
           - percentage
   - type: Percentage
@@ -234,11 +236,11 @@ definitions:
       - percentage
     units:
       - name: Percent
-        symbol: '%'
+        symbol: '%%'
         fromBase: p => p
         toBase: p => p
         matches:
-          - '%'
+          - '%%'
           - percent
           - percentage
   - type: Alarm
@@ -247,11 +249,11 @@ definitions:
       - alarm
     units:
       - name: Percent
-        symbol: \%
+        symbol: '%%'
         fromBase: p => p
         toBase: p => p
         matches:
-          - \%
+          - '%%'
           - percent
           - percentage
   - type: Work
@@ -371,7 +373,7 @@ definitions:
   - type: Number
     baseUnit: Number
     matches:
-      - \*
+      - '*'
     units:
       - name: Number
         symbol: ''
@@ -379,4 +381,4 @@ definitions:
         toBase: n => n
         matches:
           - number
-          - ''
+          - '*'
