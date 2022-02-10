@@ -247,11 +247,11 @@ definitions:
       - alarm
     units:
       - name: Percent
-        symbol: '%'
+        symbol: \%
         fromBase: p => p
         toBase: p => p
         matches:
-          - '%'
+          - \%
           - percent
           - percentage
   - type: Work
@@ -353,7 +353,7 @@ definitions:
           - in
           - inch
           - inches
-  - type: StrokeRate
+  - type: Stroke Rate
     baseUnit: Strokes per Second
     matches:
       - strokerate
@@ -371,7 +371,7 @@ definitions:
   - type: Number
     baseUnit: Number
     matches:
-      - '*'
+      - \*
     units:
       - name: Number
         symbol: ''
