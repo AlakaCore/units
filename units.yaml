@@ -223,11 +223,11 @@ definitions:
       - humidity
     units:
       - name: Percent
-        symbol: '%%'
+        symbol: percentagesymbol
         fromBase: p => p
         toBase: p => p
         matches:
-          - '%%'
+          - percentagesymbol
           - percent
           - percentage
   - type: Percentage
@@ -236,11 +236,11 @@ definitions:
       - percentage
     units:
       - name: Percent
-        symbol: '%%'
+        symbol: percentagesymbol
         fromBase: p => p
         toBase: p => p
         matches:
-          - '%%'
+          - percentagesymbol
           - percent
           - percentage
   - type: Alarm
@@ -249,11 +249,11 @@ definitions:
       - alarm
     units:
       - name: Percent
-        symbol: '%%'
+        symbol: percentagesymbol
         fromBase: p => p
         toBase: p => p
         matches:
-          - '%%'
+          - percentagesymbol
           - percent
           - percentage
   - type: Work
