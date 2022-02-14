@@ -368,7 +368,7 @@ return out`, "string", "removes whitespace and lower cases the string", "input s
 	var allUnits []string
 	var allUnitTypes []string
 	// Provide a function for getting a unit and/or unit type
-	getTypeCode := `switch input {`
+	getTypeCode := `switch SanitizeString(input) {`
 	getUnitCode := `search := typeOf.Title() + "->" + SanitizeString(input)
 switch search {`
 	getTypeUnitCode := `switch input {`
