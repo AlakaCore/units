@@ -214,6 +214,34 @@ definitions:
           - volt
           - volts
           - v
+  - type: Electric Potential Loaded
+    baseUnit: Volts
+    matches:
+      - electricpotentialloaded
+      - voltageloaded
+    units:
+      - name: Volts
+        symbol: V
+        fromBase: V => V
+        toBase: V => V
+        matches:
+          - volt
+          - volts
+          - v
+  - type: Electric Potential Unloaded
+    baseUnit: Volts
+    matches:
+      - electricpotentialunloaded
+      - voltageunloaded
+    units:
+      - name: Volts
+        symbol: V
+        fromBase: V => V
+        toBase: V => V
+        matches:
+          - volt
+          - volts
+          - v
 # We measure humidity, percentage, and alarms in the same unit, percent
 # The % symbol is a special character in go AND in yaml so we provide it
 # as '%%'. The quotes are for yaml, the double % is for go.
@@ -369,6 +397,54 @@ definitions:
           - strokes/s
           - strokespersecond
           - s/s
+  - type: Overspeed
+    baseUnit: Number
+    matches:
+      - 'overspeed'
+    units:
+      - name: Number
+        symbol: ''
+        fromBase: n => n
+        toBase: n => n
+        matches:
+          - number
+          - '*'
+  - type: Underspeed
+    baseUnit: Number
+    matches:
+      - 'underspeed'
+    units:
+      - name: Number
+        symbol: ''
+        fromBase: n => n
+        toBase: n => n
+        matches:
+          - number
+          - '*'
+  - type: Totaliser
+    baseUnit: Number
+    matches:
+      - 'totaliser'
+    units:
+      - name: Number
+        symbol: ''
+        fromBase: n => n
+        toBase: n => n
+        matches:
+          - number
+          - '*'
+  - type: WML Flow Rate
+    baseUnit: Number
+    matches:
+      - 'wmlflowrate'
+    units:
+      - name: Number
+        symbol: ''
+        fromBase: n => n
+        toBase: n => n
+        matches:
+          - number
+          - '*'
 # Number is provided as a catch all
   - type: Number
     baseUnit: Number
