@@ -81,8 +81,8 @@ func fnJs(fnName, code, returns string, comment string, args ...string) string {
 
 	arguments := array(args, false)
 	return fmt.Sprintf(`// %s %s
-(%s): %s => {
-%s}`, fnName, comment, arguments, returns, codeString)
+function %s (%s): %s {
+%s}`, fnName, comment, fnName, arguments, returns, codeString)
 }
 
 func fn(structName, fnName, code, returns string, comment string, args ...string) string {
@@ -284,7 +284,6 @@ func (u *Unit) MakeJsCode(def *Definition) string {
 	matcher := tabOut(fnJs(
 		"matcher",
 		`check = sanitizeString(check)
-// @ts-ignore
 for (const m of this.matchList) {
 	if (m === check || m === '*') return true
 }
@@ -293,7 +292,7 @@ return false`,
 		`returns true if check matches our possible names.
 // Helpful when a user is allowed to enter in unit types
 // freehand, for example.`,
-		"check: string",
+		"this: Unit, check: string",
 	), 1)
 
 	base := def.Base.StructName(def.StructName())
@@ -454,7 +453,6 @@ func (d *Definition) MakeJsCode() string {
 	%s`, name, d.Type, units, matches, tabOut(fnJs(
 		"matcher",
 		`check = sanitizeString(check)
-// @ts-ignore
 for (const m of this.matchList) {
 	if (m === check || m === '*') return true
 }
@@ -463,7 +461,7 @@ return false`,
 		`returns true if check matches our possible names.
 // Helpful when a user is allowed to enter in unit types
 // freehand, for example.`,
-		"check: string",
+		"this: UnitType, check: string",
 	), 1))
 
 	block = appends(block, `export const %s = new UnitType(
@@ -720,10 +718,14 @@ export class Unit {
 	// base returns the base Unit of this UnitType directly
 	public readonly base: Unit
 
-	// We set the actual functions as private members and initialize them later for each unit
-	private readonly _fromBase: conversion
-	private readonly _toBase: conversion
-	private readonly _matches: matcher
+	// fromBase converts the given number of the unit type base to this unit
+	public fromBase: conversion
+
+	// toBase converts the given number of this unit type to the base unit
+	public toBase: conversion
+	
+	// matches compares a string to a switch of all possible matches
+	public matches: matcher
 
 	constructor(
 		title: unitTitle,
@@ -746,19 +748,10 @@ export class Unit {
 		} else {
 			this.base = this
 		}
-		this._fromBase = fromBase
-		this._toBase = toBase
-		this._matches = matches
+		this.fromBase = fromBase.bind(this)
+		this.toBase = toBase.bind(this)
+		this.matches = matches.bind(this)
 	}
-
-	// fromBase converts the given number of the unit type base to this unit
-	public fromBase: conversion = (n: scalar) => this._fromBase(n)
-
-	// toBase converts the given number of this unit type to the base unit
-	public toBase: conversion = (n: scalar) => this._toBase(n)
-	
-	// matches compares a string to a switch of all possible matches
-	public matches: matcher = (s: string) => this._matches(s)
 }
 
 // UnitType represents a collection of related units
@@ -780,8 +773,8 @@ export class UnitType {
 	// matchList is a list of matching strings which should represent this unit type in userland
 	public readonly matchList: string[]
 
-	//  We set the actual functions as private members and initialize them later for each unit
-	private readonly _matches: matcher
+    // matches compares a string to a switch of all possible matches
+	public matches: matcher
 
 	constructor (
 		title: unitTypeTitle,
@@ -794,11 +787,8 @@ export class UnitType {
 		this.name = name
 		this.unitList = unitList
 		this.matchList = matchList
-		this._matches = matches
+		this.matches = matches.bind(this)
 	}
-
-    // matches compares a string to a switch of all possible matches
-	public matches: matcher = (s: string) => this._matches(s)
 }`)
 
 	// Utility functions
