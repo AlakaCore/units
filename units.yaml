@@ -581,6 +581,16 @@ definitions:
           - percentagesymbol
           - percent
           - percentage
+  - type: Fillage
+    baseUnit: Percent
+    matches:
+      - fillage
+    copyUnits: Percentage
+  - type: Pump Fillage
+    baseUnit: Percent
+    matches:
+      - pumpfillage
+    copyUnits: Fillage
   - type: Humidity
     baseUnit: Percent
     matches:
@@ -660,6 +670,26 @@ definitions:
           - kgf
           - kilograms-force
           - kilogram-force
+  - type: Load
+    baseUnit: Newtons
+    matches:
+      - load
+    copyUnits: Force
+  - type: Max Load
+    baseUnit: Newtons
+    matches:
+      - maxload
+    copyUnits: Load
+  - type: Min Load
+    baseUnit: Newtons
+    matches:
+      - minload
+    copyUnits: Load
+  - type: Fluid Load
+    baseUnit: Newtons
+    matches:
+      - fluidload
+    copyUnits: Load
   - type: Length
     baseUnit: Meters
     matches:
@@ -690,6 +720,21 @@ definitions:
           - in
           - inch
           - inches
+  - type: Stroke
+    baseUnit: Meters
+    matches:
+      - stroke
+    copyUnits: Length
+  - type: Gross Stroke
+    baseUnit: Meters
+    matches:
+      - grossstroke
+    copyUnits: Stroke
+  - type: Net Stroke
+    baseUnit: Meters
+    matches:
+      - netstroke
+    copyUnits: Stroke
   - type: Stroke Rate
     baseUnit: Strokes per Second
     matches:
