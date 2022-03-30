@@ -16,7 +16,7 @@
     "postversion": "git push && git push --tags"
   },
   "author": "AlakaCore",
-  "license": "",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.14.3",
     "@babel/preset-env": "^7.14.4",
