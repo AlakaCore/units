@@ -606,7 +606,7 @@ switch search {`
 		var unitNames []string
 
 		for _, u := range d.Units {
-			if u.Name == "Number" {
+			if u.Name == "Number" && d.StructName() == "Number" {
 				numberUnitName = u.VarName(d.StructName())
 			}
 
@@ -854,7 +854,7 @@ return input.toLowerCase().replace(WhitespaceRegex, replaceValue)`,
 		var unitNames []string
 
 		for _, u := range d.Units {
-			if u.Name == "Number" {
+			if u.Name == "Number" && d.StructName() == "Number" {
 				numberUnitName = u.VarName(d.StructName())
 			}
 
