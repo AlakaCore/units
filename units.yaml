@@ -120,7 +120,7 @@ definitions:
           - cubicmeterpersecond
           - cubicmeters/second
           - cubicmeter/second
-      - name: CubicFeetPerSecond
+      - name: Cubic Feet per Second
         symbol: ft³/s
         fromBase: m3s => m3s * 35.314,7
         toBase: ft3s => ft3s * 0.028,316,8
@@ -164,6 +164,67 @@ definitions:
           - mf^3d
           - thousandcubicfeetperday
           - thousandcubicfeet/day
+      - name: Gallons (U.S. Fluid) per Second
+        symbol: gal/s
+        fromBase: m3s => m3s * 264.172
+        toBase: gals => gals * 0.003,785,41
+        matches:
+          - gal/s
+          - gals/s
+          - gals
+          - galss
+          - gps
+          - gallonspersecond
+          - gallonpersecond
+          - gallons/second
+          - gallon/second
+      - name: Gallons (U.S. Fluid) per Minute
+        symbol: gal/min
+        fromBase: m3s => m3s * 15850.3
+        toBase: galm => galm * 0.000,063,090,2
+        matches:
+          - gal/m
+          - gals/m
+          - galm
+          - galsm
+          - gpm
+          - gallonsperminute
+          - gallonperminute
+          - gallonspermin
+          - gallonpermin
+          - gallons/minute
+          - gallons/min
+          - gallon/minute
+          - gallon/min
+      - name: Barrels per Second
+        symbol: bbl/s
+        fromBase: m3s => m3s * 6.289,81
+        toBase: bbls => bbls * 0.158,987
+        matches:
+          - bbl/s
+          - bbl/second
+          - bbls
+          - barrelpersecond
+          - barrelspersecond
+          - barrels/second
+          - barrel/second
+      - name: Barrels per Minute
+        symbol: bbl/min
+        fromBase: m3s => m3s * 377.389
+        toBase: bblm => bblm * 0.002,649,79
+        matches:
+          - bbl/min
+          - bbl/minute
+          - bbl/m
+          - bblm
+          - barrelspermin
+          - barrelsperminute
+          - barrelpermin
+          - barrelperminute
+          - barrels/min
+          - barrels/minute
+          - barrel/min
+          - barrel/minute
   - type: Volume
     baseUnit: Cubic Meters
     matches:
@@ -200,6 +261,284 @@ definitions:
           - thousandcubicfeet
           - thousandsofcubicfeet
           - thousandscubicfeet
+      - name: Cubic Decimeter
+        symbol: dm³
+        fromBase: m3 => m3 * 1,000
+        toBase: dm3 => dm3 * 0.001
+        matches:
+          - dm³
+          - dm3
+          - cubicdecimeter
+          - cubicdecimeters
+      # a liter is the same as a cubic decimeter
+      - name: Liter
+        symbol: L
+        fromBase: m3 => m3 * 1,000
+        toBase: L => L * 0.001
+        matches:
+          - l
+          - liter
+          - liters
+          # canadians
+          - litre
+          - litres
+      - name: Gallon (U.S. Fluid)
+        symbol: gal (US)
+        fromBase: m3 => m3 * 264.172
+        toBase: gal => gal * 0.003,785,41
+        matches:
+          - gal
+          - gallon
+          - gals
+          - gallons
+          - gal(us)
+          - gallon(us)
+          - gals(us)
+          - gallons(us)
+          - gal(u.s.)
+          - gallon(u.s.)
+          - gals(u.s.)
+          - gallons(u.s.)
+          - gal(usfluid)
+          - gallon(usfluid)
+          - gals(usfluid)
+          - gallons(usfluid)
+          - gal(u.s.fluid)
+          - gallon(u.s.fluid)
+          - gals(u.s.fluid)
+          - gallons(u.s.fluid)
+      - name: Barrels of Oil
+        symbol: bbl
+        fromBase: m3 => m3 * 6.289,81
+        toBase: bbl => bbl * 0.158,987
+        matches:
+          - bbl
+          - bbls
+          - barrelsofoil
+          - barrelofoil
+  - type: Mass
+    baseUnit: Kilograms
+    matches:
+      - mass
+    units:
+      - name: Kilograms
+        symbol: kg
+        fromBase: kg => kg
+        toBase: kg => kg
+        matches:
+          - kg
+          - kilogram
+          - kilo
+          - kgs
+          - kilograms
+          - kilos
+      - name: Pounds
+        symbol: lb
+        fromBase: kg => kg * 2.204,62
+        toBase: lb => lb * 0.453,592
+        matches:
+          - lb
+          - lbs
+          - pound
+          - pounds
+  - type: Mass Flow
+    baseUnit: Kilograms per Second
+    matches:
+      - massflow
+      - massflowrate
+      - flow(mass)
+      - flowrate(mass)
+    units:
+      - name: Kilograms per Second
+        symbol: kg/s
+        fromBase: kgs => kgs
+        toBase: kgs => kgs
+        matches:
+          - kg/s
+          - kgs
+          - kilogrampersecond
+          - kilopersecond
+          - kgpersecond
+          - kilogramspersecond
+          - kilospersecond
+          - kgspersecond
+          - kilogram/second
+          - kilo/second
+          - kg/second
+          - kilograms/second
+          - kilos/second
+          - kgs/second
+      - name: Pounds per Second
+        symbol: lb/s
+        fromBase: kgs => kgs * 2.204,62
+        toBase: lbs => lbs * 0.453,592
+        matches:
+          - lb/s
+          - lbs/s
+          - lbs
+          - lbss
+          - poundpersecond
+          - poundspersecond
+          - pound/second
+          - pounds/second
+      - name: Pounds per Minute
+        symbol: lb/min
+        fromBase: kgs => kgs * 132.277
+        toBase: lbmin => lbmin * 0.007,559,87
+        matches:
+          - lb/min
+          - lbs/min
+          - lbmin
+          - lbsmin
+          - lb/m
+          - lbs/m
+          - lbm
+          - lbsm
+          - poundperminute
+          - poundsperminute
+          - pound/minute
+          - pounds/minute
+          - poundpermin
+          - poundspermin
+          - pound/min
+          - pounds/min
+  #- type: Density
+    #baseUnit: Kilograms per Cubic Meter
+    #matches:
+      #- density
+    #units:
+      #- name: Kilograms per Cubic Meter
+        #symbol: kg/m³
+        #fromBase: kgm3 => kgm3
+        #toBase: kgm3 => kgm3
+        #matches:
+          #- kg/l
+          #- kgl
+          #- kgs/l
+          #- kilogramsperliter
+          #- kilogramsperlitre
+          #- kilogramperliter
+          #- kilogramperlitre
+          #- kiloperliter
+          #- kiloperlitre
+          #- kilosperliter
+          #- kilosperlitre
+          #- kilograms/liter
+          #- kilograms/litre
+          #- kilogram/liter
+          #- kilogram/litre
+          #- kilo/liter
+          #- kilo/litre
+          #- kilos/liter
+          #- kilos/litre
+      #- name: Kilograms per Cubic Meter
+        #symbol: kg/m³
+        #fromBase: kgm3 => kgm3
+        #toBase: kgm3 => kgm3
+        #matches:
+          #- kg/l
+          #- kgl
+          #- kgs/l
+          #- kilogramsperliter
+          #- kilogramsperlitre
+          #- kilogramperliter
+          #- kilogramperlitre
+          #- kiloperliter
+          #- kiloperlitre
+          #- kilosperliter
+          #- kilosperlitre
+          #- kilograms/liter
+          #- kilograms/litre
+          #- kilogram/liter
+          #- kilogram/litre
+          #- kilo/liter
+          #- kilo/litre
+          #- kilos/liter
+          #- kilos/litre
+      #- name: Pounds per Gallon (U.S. Fluid)
+        #symbol: lb/gal
+        #fromBase: kgL => kgL * 8.345,40
+        #toBase: lbgal => lbgal * 0.119,826
+        #matches:
+          #- lb/gal
+          #- lbs/gal
+          #- poundspergallon
+          #- poundpergallon
+          #- pounds/gallon
+          #- pound/gallon
+          #- poundspergallon(us)
+          #- poundpergallon(us)
+          #- pounds/gallon(us)
+          #- pound/gallon(us)
+          #- poundspergallon(u.s.)
+          #- poundpergallon(u.s.)
+          #- pounds/gallon(u.s.)
+          #- pound/gallon(u.s.)
+          #- poundspergallon(usfluid)
+          #- poundpergallon(usfluid)
+          #- pounds/gallon(usfluid)
+          #- pound/gallon(usfluid)
+          #- poundspergallon(u.s.fluid)
+          #- poundpergallon(u.s.fluid)
+          #- pounds/gallon(u.s.fluid)
+          #- pound/gallon(u.s.fluid)
+  #- type: Concentration
+    #baseUnit: Liters per Liter
+    #matches:
+      #- concentration
+      #- conc
+    #units:
+      #- name: Liters per Liter
+        #symbol: L/L
+        #fromBase: LL => LL
+        #toBase: LL => LL
+        #matches:
+          #- kg/l
+          #- kgl
+          #- kgs/l
+          #- kilogramsperliter
+          #- kilogramsperlitre
+          #- kilogramperliter
+          #- kilogramperlitre
+          #- kiloperliter
+          #- kiloperlitre
+          #- kilosperliter
+          #- kilosperlitre
+          #- kilograms/liter
+          #- kilograms/litre
+          #- kilogram/liter
+          #- kilogram/litre
+          #- kilo/liter
+          #- kilo/litre
+          #- kilos/liter
+          #- kilos/litre
+      #- name: Pounds per Gallon (U.S. Fluid)
+        #symbol: lb/gal
+        #fromBase: kgL => kgL * 8.345,40
+        #toBase: lbgal => lbgal * 0.119,826
+        #matches:
+          #- lb/gal
+          #- lbs/gal
+          #- poundspergallon
+          #- poundpergallon
+          #- pounds/gallon
+          #- pound/gallon
+          #- poundspergallon(us)
+          #- poundpergallon(us)
+          #- pounds/gallon(us)
+          #- pound/gallon(us)
+          #- poundspergallon(u.s.)
+          #- poundpergallon(u.s.)
+          #- pounds/gallon(u.s.)
+          #- pound/gallon(u.s.)
+          #- poundspergallon(usfluid)
+          #- poundpergallon(usfluid)
+          #- pounds/gallon(usfluid)
+          #- pound/gallon(usfluid)
+          #- poundspergallon(u.s.fluid)
+          #- poundpergallon(u.s.fluid)
+          #- pounds/gallon(u.s.fluid)
+          #- pound/gallon(u.s.fluid)
   - type: Electric Potential
     baseUnit: Volts
     matches:
@@ -219,45 +558,16 @@ definitions:
     matches:
       - electricpotentialloaded
       - voltageloaded
-    units:
-      - name: Volts
-        symbol: V
-        fromBase: V => V
-        toBase: V => V
-        matches:
-          - volt
-          - volts
-          - v
+    copyUnits: Electric Potential
   - type: Electric Potential Unloaded
     baseUnit: Volts
     matches:
       - electricpotentialunloaded
       - voltageunloaded
-    units:
-      - name: Volts
-        symbol: V
-        fromBase: V => V
-        toBase: V => V
-        matches:
-          - volt
-          - volts
-          - v
+    copyUnits: Electric Potential
 # We measure humidity, percentage, and alarms in the same unit, percent
 # The % symbol is a special character in go AND in yaml so we provide it
-# as '%%'. The quotes are for yaml, the double % is for go.
-  - type: Humidity
-    baseUnit: Percent
-    matches:
-      - humidity
-    units:
-      - name: Percent
-        symbol: percentagesymbol
-        fromBase: p => p
-        toBase: p => p
-        matches:
-          - percentagesymbol
-          - percent
-          - percentage
+# as 'percentagesymbol'.
   - type: Percentage
     baseUnit: Percent
     matches:
@@ -271,19 +581,16 @@ definitions:
           - percentagesymbol
           - percent
           - percentage
+  - type: Humidity
+    baseUnit: Percent
+    matches:
+      - humidity
+    copyUnits: Percentage
   - type: Alarm
     baseUnit: Percent
     matches:
       - alarm
-    units:
-      - name: Percent
-        symbol: percentagesymbol
-        fromBase: p => p
-        toBase: p => p
-        matches:
-          - percentagesymbol
-          - percent
-          - percentage
+    copyUnits: Percentage
   - type: Work
     baseUnit: Joules
     matches:
@@ -397,55 +704,7 @@ definitions:
           - strokes/s
           - strokespersecond
           - s/s
-  - type: Overspeed
-    baseUnit: Number
-    matches:
-      - 'overspeed'
-    units:
-      - name: Number
-        symbol: ''
-        fromBase: n => n
-        toBase: n => n
-        matches:
-          - number
-          - '*'
-  - type: Underspeed
-    baseUnit: Number
-    matches:
-      - 'underspeed'
-    units:
-      - name: Number
-        symbol: ''
-        fromBase: n => n
-        toBase: n => n
-        matches:
-          - number
-          - '*'
-  - type: Totaliser
-    baseUnit: Number
-    matches:
-      - 'totaliser'
-    units:
-      - name: Number
-        symbol: ''
-        fromBase: n => n
-        toBase: n => n
-        matches:
-          - number
-          - '*'
-  - type: WML Flow Rate
-    baseUnit: Number
-    matches:
-      - 'wmlflowrate'
-    units:
-      - name: Number
-        symbol: ''
-        fromBase: n => n
-        toBase: n => n
-        matches:
-          - number
-          - '*'
-# Number is provided as a catch all
+  # Number is provided as a catch all
   - type: Number
     baseUnit: Number
     matches:
@@ -458,3 +717,23 @@ definitions:
         matches:
           - number
           - '*'
+  - type: Overspeed
+    baseUnit: Number
+    matches:
+      - 'overspeed'
+    copyUnits: Number
+  - type: Underspeed
+    baseUnit: Number
+    matches:
+      - 'underspeed'
+    copyUnits: Number
+  - type: Totaliser
+    baseUnit: Number
+    matches:
+      - 'totaliser'
+    copyUnits: Number
+  - type: WML Flow Rate
+    baseUnit: Number
+    matches:
+      - 'wmlflowrate'
+    copyUnits: Number

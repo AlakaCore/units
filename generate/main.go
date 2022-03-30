@@ -11,6 +11,8 @@ import (
 
 func title(x string) string {
 	tmp := strings.ReplaceAll(x, "-", " ")
+	r := strings.NewReplacer(".", "", "(", "", ")", "")
+	tmp = r.Replace(tmp)
 	components := strings.Split(tmp, " ")
 	result := ""
 	for _, component := range components {
@@ -165,11 +167,12 @@ func (u *Unit) VarName(defName string) string {
 }
 
 type Definition struct {
-	Type     string   `yaml:"type"`
-	BaseUnit string   `yaml:"baseUnit"`
-	Matches  []string `yaml:"matches"`
-	Units    []Unit   `yaml:"units"`
-	Base     Unit
+	Type      string   `yaml:"type"`
+	BaseUnit  string   `yaml:"baseUnit"`
+	Matches   []string `yaml:"matches"`
+	Units     []Unit   `yaml:"units"`
+	CopyUnits *string  `yaml:"copyUnits"`
+	Base      Unit
 }
 
 func (d *Definition) StructName() string {
@@ -929,6 +932,24 @@ export const AllUnitTypes: alakaTitle[] = [
 	return []byte(file)
 }
 
+func (uy *UnitsYaml) ResolveUnitTypeCopies() {
+	cache := make(map[string]Definition)
+
+	for idx, d := range uy.Definitions {
+		if d.CopyUnits != nil {
+			parent, ok := cache[*d.CopyUnits]
+			if !ok {
+				panic(fmt.Sprintf("Declared copy before parent: %s before %s", d.Type, d.CopyUnits))
+			}
+
+			d.Units = parent.Units
+			uy.Definitions[idx] = d
+		}
+
+		cache[d.Type] = d
+	}
+}
+
 func main() {
 	cwd, err := os.Getwd()
 	if err != nil {
@@ -946,6 +967,7 @@ func main() {
 		panic(err)
 	}
 
+	data.ResolveUnitTypeCopies()
 	goFile := data.MakeGoFile()
 	jsFile := data.MakeJsFile()
 
