@@ -70,8 +70,8 @@ definitions:
           - degreecelsius
       - name: Degrees Fahrenheit
         symbol: °F
-        fromBase: C => (C * (9 / 5)) + 32
-        toBase: F => (F - 32) * (5 / 9)
+        fromBase: C => (C * (9.0 / 5.0)) + 32.0
+        toBase: F => (F - 32.0) * (5.0 / 9.0)
         matches:
           - f
           - °f
